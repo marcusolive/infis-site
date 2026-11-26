@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>INFIS · Inteligência Fiscal | Consultoria tributária e compliance fiscal</title>
+  <meta name="description" content="Consultoria tributária, compliance fiscal, Reforma Tributária e terceirização fiscal para grandes empresas. Rio de Janeiro, São Paulo e Manaus." />
+  <meta name="theme-color" content="#0E0E0F" />
+  <link rel="alternate" hreflang="pt-BR" href="https://infisconsultoria.com.br/?lang=pt" />
+  <link rel="alternate" hreflang="en" href="https://infisconsultoria.com.br/?lang=en" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="INFIS · Inteligência Fiscal" />
+  <meta property="og:description" content="Gestão fiscal inteligente para cenários complexos." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&h=630&q=75" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AccountingService",
+    "name": "INFIS Inteligência Fiscal",
+    "url": "https://infisconsultoria.com.br",
+    "description": "Consultoria tributária, compliance fiscal, Reforma Tributária e terceirização fiscal.",
+    "areaServed": "BR",
+    "knowsLanguage": ["pt-BR", "en"],
+    "sameAs": ["https://www.linkedin.com/company/infisconsultoria/", "https://www.instagram.com/infisconsultoria", "https://www.youtube.com/@InfisConsultoria", "https://www.facebook.com/infisconsultoria"],
+    "address": [
+      {"@type": "PostalAddress", "streetAddress": "Av. Rio Branco, 40, 16º andar", "addressLocality": "Rio de Janeiro", "addressRegion": "RJ", "postalCode": "20090-002", "addressCountry": "BR"},
+      {"@type": "PostalAddress", "streetAddress": "Av. Nicolas Boer, 399, 3º andar", "addressLocality": "São Paulo", "addressRegion": "SP", "postalCode": "01140-060", "addressCountry": "BR"},
+      {"@type": "PostalAddress", "streetAddress": "Av. Efigênio Salles, 1299", "addressLocality": "Manaus", "addressRegion": "AM", "addressCountry": "BR"}
+    ],
+    "telephone": "+55-21-3169-6554"
+  }
+  </script>
+  <script>
+    // Idioma decidido antes da pintura para não piscar o texto errado
+    (function () {
+      var q = new URLSearchParams(location.search).get('lang');
+      var l = q || localStorage.getItem('infis-lang') || ((navigator.language || 'pt').toLowerCase().indexOf('pt') === 0 ? 'pt' : 'en');
+      document.documentElement.lang = l === 'en' ? 'en' : 'pt-BR';
+      document.documentElement.dataset.lang = l === 'en' ? 'en' : 'pt';
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="curtain" id="curtain" aria-hidden="true">
+    <div class="curtain__mark" data-mark></div>
+    <div class="curtain__line"><span></span></div>
+  </div>
+
+  <header class="hd" id="hd">
+    <a class="hd__logo" href="#top" data-logo></a>
+    <nav class="hd__nav" id="nav" aria-label="Principal"></nav>
+    <div class="hd__right">
+      <div class="lang" role="group" aria-label="Idioma / Language">
+        <button data-setlang="pt">PT</button><span>/</span><button data-setlang="en">EN</button>
+      </div>
+      <a class="btn btn--line btn--sm hd__cta" href="#contact" data-t="nav.cta"></a>
+      <button class="hd__burger" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button>
+    </div>
+  </header>
+  <aside class="drawer" id="drawer" aria-hidden="true"><nav id="drawerNav"></nav></aside>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <canvas class="hero__gl" id="gl" aria-hidden="true"></canvas>
+      <div class="hero__fallback" id="heroFallback" aria-hidden="true"></div>
+      <div class="hero__shade" aria-hidden="true"></div>
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <p class="kicker kicker--light" data-t="hero.label"></p>
+          <h1 class="hero__title" data-t-html="hero.title"></h1>
+          <p class="hero__lead" data-t="hero.lead"></p>
+          <div class="hero__actions">
+            <a class="btn btn--sun" href="#contact"><span data-t="hero.cta"></span><i class="arr"></i></a>
+            <a class="link-arrow link-arrow--light" href="#solutions"><span data-t="hero.cta2"></span><i class="arr"></i></a>
+          </div>
+        </div>
+        <div class="hero__ring" aria-hidden="true">
+          <svg viewBox="0 0 200 200"><defs><linearGradient id="ringG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F5821F"/><stop offset="1" stop-color="#E5343B"/></linearGradient></defs>
+            <circle cx="100" cy="100" r="96" class="ring-base"/><circle cx="100" cy="100" r="96" class="ring-prog" id="ringProg"/></svg>
+          <div class="hero__count"><b id="slideNum">01</b><span>/ 03</span></div>
+        </div>
+      </div>
+      <div class="hero__facts wrap" id="facts"></div>
+    </section>
+
+    <section class="sec intro" id="about">
+      <div class="wrap grid12">
+        <p class="kicker col-3"><span class="num">01</span><span data-t="intro.label"></span></p>
+        <div class="col-9">
+          <p class="intro__text" data-words data-t="intro.text"></p>
+          <p class="lead intro__body" data-t="intro.body"></p>
+        </div>
+      </div>
+      <div class="wrap grid12 why">
+        <div class="col-4 why__side">
+          <h3 class="h3 why__title" data-split data-t="intro.whyTitle"></h3>
+          <p class="why__lead" data-t="intro.whyLead"></p>
+          <figure class="why__fig tilt-media"><div class="img-mask"><img data-src="photo-1497366216548-37526070297c" data-w="1100" alt="" class="parallax" /></div></figure>
+        </div>
+        <ul class="col-8 why__grid" id="introPoints"></ul>
+      </div>
+    </section>
+
+    <section class="sec clients" id="clients">
+      <div class="wrap grid12 sec__head">
+        <p class="kicker col-3"><span class="num">02</span><span data-t="clients.label"></span></p>
+        <div class="col-9">
+          <h2 class="h2" data-split data-t="clients.title"></h2>
+          <p class="lead" data-t="clients.lead"></p>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="filters" id="clientFilters" role="tablist"></div>
+        <p class="clients__desc" id="clientDesc" aria-live="polite"></p>
+        <ul class="logos" id="logos"></ul>
+      </div>
+    </section>
+
+    <section class="sec solutions" id="solutions">
+      <div class="wrap grid12 sec__head">
+        <p class="kicker col-3"><span class="num">03</span><span data-t="solutions.label"></span></p>
+        <div class="col-9">
+          <h2 class="h2" data-split data-t="solutions.title"></h2>
+          <p class="lead" data-t="solutions.lead"></p>
+        </div>
+      </div>
+      <div class="wrap"><ol class="index" id="index"></ol></div>
+    </section>
+
+    <section class="cinema" id="numbers">
+      <div class="cinema__bg"><img data-src="photo-1518186285589-2f7649de83e0" alt="" /></div>
+      <div class="cinema__shade"></div>
+      <div class="wrap">
+        <p class="kicker kicker--light"><span class="num">04</span><span data-t="numbers.label"></span></p>
+        <h2 class="h2 h2--light" data-split data-t="numbers.title"></h2>
+        <p class="lead lead--light numbers__lead" data-t="numbers.lead"></p>
+        <div class="figures" id="figures"></div>
+      </div>
+    </section>
+
+    <section class="reforma" id="reforma">
+      <div class="reforma__pin">
+        <div class="wrap grid12 sec__head">
+          <p class="kicker kicker--light col-3"><span class="num">05</span><span data-t="reforma.label"></span></p>
+          <div class="col-9">
+            <h2 class="h2 h2--light" data-split data-t="reforma.title"></h2>
+            <p class="lead lead--light" data-t="reforma.lead"></p>
+          </div>
+        </div>
+        <div class="years" id="years"></div>
+        <div class="wrap reforma__foot"><div class="rail"><span id="railFill"></span></div><p class="fine fine--light reforma__note" data-t="reforma.foot"></p></div>
+      </div>
+    </section>
+
+    <section class="sec method" id="method">
+      <div class="wrap grid12">
+        <div class="col-5 method__side">
+          <p class="kicker"><span class="num">06</span><span data-t="method.label"></span></p>
+          <h2 class="h2" data-split data-t="method.title"></h2>
+          <p class="lead" data-t="method.lead"></p>
+          <div class="method__img img-mask"><img data-src="photo-1542744173-8e7e53415bb0" alt="" class="parallax" /></div>
+        </div>
+        <ol class="col-7 steps" id="steps"></ol>
+      </div>
+    </section>
+
+    <section class="sectors" id="sectors">
+      <div class="sectors__media" id="sectorMedia"></div>
+      <div class="sectors__shade"></div>
+      <div class="wrap grid12 sectors__inner">
+        <div class="col-5">
+          <p class="kicker kicker--light"><span class="num">07</span><span data-t="sectors.label"></span></p>
+          <h2 class="h2 h2--light" data-split data-t="sectors.title"></h2>
+        </div>
+        <ul class="col-7 sector-list" id="sectorList"></ul>
+      </div>
+    </section>
+
+    <section class="sec values">
+      <div class="wrap">
+        <p class="kicker"><span class="num">08</span><span data-t="values.label"></span></p>
+        <p class="lead values__lead" data-t="values.lead"></p>
+        <div class="values__row" id="values"></div>
+      </div>
+      <div class="wrap grid12 team">
+        <p class="kicker col-3"><span data-t="team.label"></span></p>
+        <div class="col-9">
+          <h2 class="h3" data-t="team.title"></h2>
+          <ul class="team__list" id="team"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec offices" id="offices">
+      <div class="wrap grid12 sec__head">
+        <p class="kicker col-3"><span class="num">09</span><span data-t="offices.label"></span></p>
+        <div class="col-9"><h2 class="h2" data-split data-t="offices.title"></h2></div>
+      </div>
+      <div class="wrap offices__grid" id="offices-list"></div>
+      <div class="wrap"><div class="map" id="map" hidden><button class="map__close" data-t-attr="aria-label:offices.close">×</button><iframe title="Mapa" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div>
+    </section>
+
+    <section class="sec news" id="insights">
+      <div class="news__ticker" aria-hidden="true"><span class="news__live" data-t="insights.live"></span><div class="news__track"><div class="news__run" id="newsTicker"></div></div></div>
+      <div class="wrap grid12 sec__head">
+        <p class="kicker col-3"><span class="num">10</span><span data-t="insights.label"></span></p>
+        <div class="col-9 news__head">
+          <h2 class="h2" data-split data-t="insights.title"></h2>
+          <p class="lead" data-t="insights.lead"></p>
+        </div>
+      </div>
+      <div class="wrap news__grid" id="newsGrid"></div>
+      <div class="wrap news__more" id="newsMore"></div>
+      <div class="wrap"><div class="news__nl" id="newsletterBox"></div></div>
+    </section>
+
+    <section class="sec faq" id="faq">
+      <div class="wrap grid12">
+        <div class="col-5">
+          <p class="kicker"><span class="num">11</span><span data-t="faq.label"></span></p>
+          <h2 class="h2" data-split data-t="faq.title"></h2>
+          <p class="lead" data-t="faq.lead"></p>
+          <div class="faq__ask"><h3 class="h4" data-t="faq.ask"></h3><p data-t="faq.askText"></p><a class="btn btn--ink" id="faqWa" target="_blank" rel="noopener"><span data-t="faq.cta"></span><i class="arr"></i></a></div>
+        </div>
+        <div class="col-7 faq__list" id="faqList"></div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact__left">
+        <div class="contact__bg"><img data-src="photo-1497215842964-222b430dc094" alt="" /></div>
+        <div class="contact__inner">
+          <p class="kicker kicker--light"><span class="num">12</span><span data-t="contact.label"></span></p>
+          <h2 class="h2 h2--light" data-split data-t="contact.title"></h2>
+          <p class="lead lead--light" data-t="contact.lead"></p>
+          <p class="kicker kicker--light kicker--sm" data-t="contact.direct"></p>
+          <ul class="direct" id="direct"></ul>
+        </div>
+      </div>
+      <div class="form-wrap"><p class="form__title" data-t="contact.form"></p><form class="form" id="form" novalidate></form></div>
+    </section>
+  </main>
+
+  <footer class="ft">
+    <div class="wrap ft__grid">
+      <div><div class="ft__logo" data-logo></div><p data-t="footer.tagline"></p><div class="social" id="social"></div></div>
+      <div><h4 data-t="solutions.label"></h4><ul id="ftSol"></ul></div>
+      <div><h4 data-t="footer.company"></h4><ul id="ftCo"></ul></div>
+      <div><h4 data-t="offices.label"></h4><ul id="ftOff"></ul></div>
+    </div>
+    <div class="wrap ft__bottom"><span>© <span id="year"></span> INFIS Inteligência Fiscal. <span data-t="footer.rights"></span></span><button class="ft__link" id="cookiePrefs" data-t="footer.cookies"></button></div>
+  </footer>
+
+  <div class="wa" id="wa">
+    <div class="wa__panel" id="waPanel" hidden></div>
+    <button class="wa__btn" aria-label="WhatsApp" aria-expanded="false" aria-controls="waPanel">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.7c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7zm5.9-8c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1a8.8 8.8 0 0 1-4.4-3.8c-.3-.6.3-.5 1-1.7.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.7 6.4 6.4 0 0 0 1.3 3.4 14.7 14.7 0 0 0 5.7 5c2.1.9 2.9 1 4 .8.6-.1 1.9-.8 2.2-1.5s.3-1.4.2-1.5-.3-.2-.6-.4z"/></svg>
+    </button>
+  </div>
+
+  <div class="cookie" id="cookie" hidden>
+    <p data-t="cookie.text"></p>
+    <div><button class="btn btn--line btn--sm" data-cookie="deny" data-t="cookie.deny"></button><button class="btn btn--ink btn--sm" data-cookie="allow" data-t="cookie.allow"></button></div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
