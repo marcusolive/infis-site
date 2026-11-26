@@ -421,10 +421,8 @@ async function bootHero() {
     document.documentElement.classList.add('no-gl');
     const fb = $('#heroFallback');
     fb.innerHTML = urls.map((u, i) => `<img src="${u}" alt="" class="${i === 0 ? 'is-on' : ''}">`).join('');
-    if (!reduced) {
-      let i = 0;
-      setInterval(() => { const im = $$('img', fb); im[i].classList.remove('is-on'); i = (i + 1) % im.length; im[i].classList.add('is-on'); slideChanged(i); }, 8400);
-    }
+    let i = 0;
+    setInterval(() => { const im = $$('img', fb); im[i].classList.remove('is-on'); i = (i + 1) % im.length; im[i].classList.add('is-on'); slideChanged(i); }, 8400);
   }
   slideChanged(0);
 }
@@ -503,17 +501,39 @@ function animate() {
     onEnter: () => { const o = { v: 0 }; gsap.to(o, { v: +el.dataset.count, duration: 2.2, ease: 'power3.out', onUpdate: () => (el.textContent = Math.round(o.v)) }); },
   }));
 
-  const mm = gsap.matchMedia();
-  mm.add('(min-width: 721px)', () => {
-    const track = $('#years');
-    const dist = () => Math.max(0, track.scrollWidth - innerWidth);
-    gsap.to(track, { x: () => -dist(), ease: 'none', scrollTrigger: { trigger: '.reforma', start: 'top top', end: () => `+=${dist() + innerHeight * 0.4}`, pin: '.reforma__pin', scrub: 0.8, invalidateOnRefresh: true } });
-    gsap.to('#railFill', { scaleX: 1, ease: 'none', scrollTrigger: { trigger: '.reforma', start: 'top top', end: () => `+=${dist() + innerHeight * 0.4}`, scrub: true } });
-  });
+  pinReforma(0.8);
   $$('.yr').forEach((y) => ScrollTrigger.create({ trigger: '.reforma', start: 'top top', end: 'bottom bottom', onUpdate: () => {
     const r = y.getBoundingClientRect();
     y.classList.toggle('is-on', r.left < innerWidth * 0.75 && r.top < innerHeight * 0.85);
   } }));
+}
+
+// A Reforma rola na horizontal enquanto a página desce; só anda quando a pessoa rola.
+function pinReforma(scrub) {
+  gsap.matchMedia().add('(min-width: 721px)', () => {
+    const track = $('#years');
+    const dist = () => Math.max(0, track.scrollWidth - innerWidth);
+    const end = () => `+=${dist() + innerHeight * 0.4}`;
+    gsap.to(track, { x: () => -dist(), ease: 'none', scrollTrigger: { trigger: '.reforma', start: 'top top', end, pin: '.reforma__pin', scrub, invalidateOnRefresh: true } });
+    gsap.to('#railFill', { scaleX: 1, ease: 'none', scrollTrigger: { trigger: '.reforma', start: 'top top', end, scrub: true } });
+  });
+}
+
+// Com "reduzir movimento" ligado no sistema, nada se desloca: só aparece com fade e os números contam.
+function animateGentle() {
+  $$('.yr').forEach((el) => el.classList.add('is-on'));
+  pinReforma(true);
+  gsap.fromTo('.hero .kicker, .hero__title, .hero__lead, .hero__actions, .fact, .hero__ring', { opacity: 0 }, { opacity: 1, duration: 1.2, stagger: 0.12, ease: 'power2.out' });
+  const fade = '[data-split], .lead, .why__lead, .filters, .logo, .ix, .figure, .step, .team__list li, .office, .news__list li, .news__bar, .news__nl, .direct li, .form > *, .sector, .faq__item, .tilt, .value, .img-mask, .yr';
+  gsap.set(fade, { opacity: 0 });
+  ScrollTrigger.batch(fade, {
+    start: 'top 94%', once: true,
+    onEnter: (els) => gsap.to(els, { opacity: 1, duration: 1, stagger: 0.07, ease: 'power2.out', overwrite: true }),
+  });
+  $$('[data-count]').forEach((el) => ScrollTrigger.create({
+    trigger: el, start: 'top 90%', once: true,
+    onEnter: () => { const o = { v: 0 }; gsap.to(o, { v: +el.dataset.count, duration: 1.8, ease: 'power2.out', onUpdate: () => (el.textContent = Math.round(o.v)) }); },
+  }));
 }
 
 /* ---------------- Entrada ---------------- */
@@ -528,9 +548,8 @@ async function start() {
   sessionStorage.removeItem('infis-y');
   if (y) { if (lenis) lenis.scrollTo(y, { immediate: true }); else window.scrollTo(0, y); }
   if (reduced) {
-    $('#curtain').style.display = 'none';
-    $$('[data-count]').forEach((el) => (el.textContent = el.dataset.count));
-    $$('.yr').forEach((el) => el.classList.add('is-on'));
+    gsap.to('#curtain', { opacity: 0, duration: 0.8, ease: 'power2.out', onComplete: () => { $('#curtain').style.display = 'none'; } });
+    animateGentle();
     return;
   }
   gsap.to('#curtain', { clipPath: 'inset(0 0 100% 0)', duration: 1.1, ease: 'power4.inOut', onComplete: () => { $('#curtain').style.display = 'none'; } });

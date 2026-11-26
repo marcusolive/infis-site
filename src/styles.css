@@ -534,5 +534,7 @@ body.drawer-open .hd .hd__logo .lg-dark { display: block; } body.drawer-open .hd
   .hd__burger { display: block; }
 }
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  .hero__fallback img.is-on, .news__live::before { animation: none; }
+  .news__track { overflow-x: auto; scrollbar-width: none; }
+  .ix__row:hover .ix__name, .ix__row:hover .ix__desc { transform: none; }
 }
