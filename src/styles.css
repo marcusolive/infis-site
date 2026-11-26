@@ -530,6 +530,7 @@ body.drawer-open .hd .hd__logo .lg-dark { display: block; } body.drawer-open .hd
 }
 @media (max-width: 1240px) {
   .hd__nav { display: none; }
+  .hd__nav + .hd__right { margin-left: auto; }
   .hd__burger { display: block; }
 }
 @media (prefers-reduced-motion: reduce) {
